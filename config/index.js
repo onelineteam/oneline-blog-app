@@ -1,3 +1,4 @@
+const path = require('path')
 const config = {
   projectName: 'oneline-blog-app',
   date: '2020-1-16',
@@ -30,6 +31,13 @@ const config = {
     ]
   },
   defineConstants: {
+  },
+  alias: {
+    '@actions': path.resolve(__dirname, '..', 'src/actions'),
+    '@assets': path.resolve(__dirname, '..', 'src/assets'),
+    '@reducers': path.resolve(__dirname, '..', 'src/reducers'),
+    '@styles': path.resolve(__dirname, '..', 'src/styles'),
+    '@utils': path.resolve(__dirname, '..', 'src/utils')
   },
   mini: {
     postcss: {
