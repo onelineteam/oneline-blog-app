@@ -7,8 +7,11 @@
 /* weapp */
 page {
   height: 100%;
+  font-size: 24px;
 }
-
+#app {
+  font-size: 24px;
+}
 view,
 text,
 scroll-view {
@@ -44,4 +47,79 @@ button {
 .taro_page {
   flex: 1;
 }
-/*postcss-pxtransform rn eject disable*/
+
+.text-ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.text-line2-ellipsis {
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  align-content: center;
+}
+.text-line3-ellipsis {
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  align-content: center;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.mt10 {
+  margin-top: 10px;
+}
+.mr10 {
+  margin-right: 10px;
+}
+.ml10 {
+  margin-left: 10px;
+}
+.mb10 {
+  margin-bottom: 10px;
+}
+.flex-box {
+  display: flex;
+}
+
+.flex-align-center {
+  align-items: center;
+}
+
+.flex-around {
+  justify-content: space-around;
+}
+
+.flex-between {
+  justify-content: space-between;
+}
+
+.flex-center {
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-2 {
+  flex: 2;
+}

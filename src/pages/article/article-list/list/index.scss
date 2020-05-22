@@ -13,6 +13,15 @@
   border-radius: 4px;
   &-l {
     flex: 1;
+    .item-title {
+      font-size: 28px;
+      color: $text-color;
+      margin-bottom: 10px;
+    }
+    .item-intro {
+      color: $text-color-light;
+      font-size: 24px;
+    }
   }
 
   &-r {
@@ -21,6 +30,7 @@
     &-img {
       width: 100%;
       height: 100%;
+      border-radius: 10px;
     }
   }
 }

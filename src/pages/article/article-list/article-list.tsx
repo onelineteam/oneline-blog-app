@@ -1,11 +1,16 @@
 import { ComponentClass } from 'react'
 import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Button, Text, ScrollView } from '@tarojs/components'
+import { View, ScrollView } from '@tarojs/components'
 import Banner from './banner'
 import List from './list'
-import './article.scss'
+import './article-list.scss'
 
-class Article extends Component {
+type PageState = {
+  bannerList:Array<any>,
+  contentList:Array<any>
+}
+
+class Article extends Component<{}, PageState> {
 
   config: Config = {
     navigationBarTitleText: '文章列表'
@@ -17,7 +22,7 @@ class Article extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      bannerList: [
+      bannerList:[
         {
           rank: 1,
           img: 'https://yanxuan.nosdn.127.net/62399a2be90be4c8df3ca64e154d5351.jpg'
@@ -40,6 +45,18 @@ class Article extends Component {
           intro: '这是文章2',
           img: 'https://yanxuan.nosdn.127.net/1f31c090095d995bf856b990fc106be6.jpg'
         },
+        {
+          id: 3,
+          title: '文章3',
+          intro: '这是文章3',
+          img: 'https://yanxuan.nosdn.127.net/1f31c090095d995bf856b990fc106be6.jpg'
+        },
+        {
+          id: 4,
+          title: '文章4',
+          intro: '这是文章4',
+          img: 'https://yanxuan.nosdn.127.net/1f31c090095d995bf856b990fc106be6.jpg'
+        },
       ]
     }
   }
@@ -51,7 +68,7 @@ class Article extends Component {
   componentDidHide() { }
 
   render() {
-    const { bannerList, contentList } = this.state
+    const { bannerList, contentList} = this.state
     return (
       <View className='article-view'>
         <Banner list={bannerList} />
