@@ -1,13 +1,15 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Image } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
+import { formatTimeStampToTime } from '@/utils/index'
 import './index.scss'
 
 type Props = {
   list: Array<{
-    id: number,
-    title: string,
-    intro: string,
-    img: string,
+    artId: string,
+    createTime: number,
+    artName: string,
+    cateDesc: string,
+    artTags: Array<string>,
   }>
 }
 export default class SwiperBanner extends Component<Props, {}> {
@@ -17,7 +19,7 @@ export default class SwiperBanner extends Component<Props, {}> {
   }
   goDetail = (item) => {
     Taro.navigateTo({
-      url: `/pages/article/article-detail/article-detail?id=${item.id}`
+      url: `/pages/article-detail/article-detail?id=${item.artId}`
     })
   }
   render() {
@@ -25,20 +27,24 @@ export default class SwiperBanner extends Component<Props, {}> {
     return (
       <View className='article-list'>
         {list.map(item => (
-          <View className='article-list_item' key={item.id} onClick={this.goDetail.bind(this,item)}>
-            <View className='article-list_item-l mr10'>
+          <View className='article-list_item' key={item.artId} onClick={this.goDetail.bind(this, item)}>
+            <View className='article-list_item-l'>
               <View className='item-title text-line2-ellipsis'>
-                {item.title}
+                {item.artName}
               </View>
               <View className='item-intro'>
-                  {item.intro}
+                {item.cateDesc}
               </View>
-            </View>
-            <View className='article-list_item-r'>
-              <Image
-                className='article-list_item-r-img'
-                src={item.img}
-              />
+              <View className='mt10'>
+              {
+                item.artTags.map((val, idx) => (
+                  <Text className='item-tag' key={idx}>{val}</Text>
+                ))
+              }
+              </View>   
+              <View className='item-create-time mt10'>
+                {formatTimeStampToTime(item.createTime)}
+              </View>
             </View>
           </View>
         ))}

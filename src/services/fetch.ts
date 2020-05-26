@@ -1,4 +1,4 @@
-const baseUrl = "https://api.wutongwei.com";
+
 import Taro from '@tarojs/taro'
 // import { logError } from './error'
 export default {
@@ -55,7 +55,7 @@ export default {
       }
     }
     const option: OptionType = {
-      url: baseUrl + params.url,
+      url:params.url,
       data: params.data,
       method: method,
       header: {

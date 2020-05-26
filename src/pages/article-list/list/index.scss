@@ -16,11 +16,23 @@
     .item-title {
       font-size: 28px;
       color: $text-color;
-      margin-bottom: 10px;
     }
     .item-intro {
       color: $text-color-light;
       font-size: 24px;
+    }
+    .item-create-time {
+      font-size: 20px;
+      color: $text-color-lighter;
+    }
+    .item-tag {
+      display: inline-block;
+      font-size: 20px;
+      color: $text-color-lighter;
+      background: $eee;
+      padding: 5px;
+      border-radius: 5px;
+      margin: 0 10px 10px 0;
     }
   }
 

@@ -4,8 +4,8 @@ import { View, ScrollView } from '@tarojs/components'
 import Banner from './banner'
 import List from './list'
 import './article-list.scss'
-import { API_ARTICLE } from '../../services/api'
-import fetch from '../../services/fetch'
+import { API_ARTICLE } from '@/services/api'
+import fetch from '@/services/fetch'
 type PageState = {
   bannerList: Array<any>,
   contentList: Array<any>
@@ -14,7 +14,7 @@ type PageState = {
 class Article extends Component<{}, PageState> {
 
   config: Config = {
-    navigationBarTitleText: '文章列表'
+    navigationBarTitleText: ''
   }
 
   componentWillReceiveProps(nextProps) {
@@ -33,32 +33,7 @@ class Article extends Component<{}, PageState> {
           img: 'https://yanxuan.nosdn.127.net/1f31c090095d995bf856b990fc106be6.jpg'
         },
       ],
-      contentList: [
-        {
-          id: 1,
-          title: '文章1',
-          intro: '这是文章1',
-          img: 'https://yanxuan.nosdn.127.net/62399a2be90be4c8df3ca64e154d5351.jpg'
-        },
-        {
-          id: 2,
-          title: '文章2',
-          intro: '这是文章2',
-          img: 'https://yanxuan.nosdn.127.net/1f31c090095d995bf856b990fc106be6.jpg'
-        },
-        {
-          id: 3,
-          title: '文章3',
-          intro: '这是文章3',
-          img: 'https://yanxuan.nosdn.127.net/1f31c090095d995bf856b990fc106be6.jpg'
-        },
-        {
-          id: 4,
-          title: '文章4',
-          intro: '这是文章4',
-          img: 'https://yanxuan.nosdn.127.net/1f31c090095d995bf856b990fc106be6.jpg'
-        },
-      ]
+      contentList: []
     }
   }
 
@@ -77,7 +52,7 @@ class Article extends Component<{}, PageState> {
         request: [
           {
             type: 'article',
-            action: 'cateList',
+            action: 'list',
             params: {
               index: 1,
               size: 20
@@ -88,6 +63,11 @@ class Article extends Component<{}, PageState> {
       }
     }).then(res => {
       console.log(res.data.data, '请求列表');
+      const data = res.data.data
+      this.setState({
+        contentList: data.articlelist.rows
+      })
+
 
     })
   }
