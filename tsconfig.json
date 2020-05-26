@@ -26,6 +26,8 @@
       "@/components/*": ["./src/components/*"],
       "@/utils/*": ["./src/utils/*"],
       "@/package": ["./package.json"],
+      "@/styles": ["./src/styles"],
+      "@/services": ["./src/services"],
     }
   },
   "exclude": [

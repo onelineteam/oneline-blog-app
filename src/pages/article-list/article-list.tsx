@@ -4,10 +4,11 @@ import { View, ScrollView } from '@tarojs/components'
 import Banner from './banner'
 import List from './list'
 import './article-list.scss'
-
+import { API_ARTICLE } from '../../services/api'
+import fetch from '../../services/fetch'
 type PageState = {
-  bannerList:Array<any>,
-  contentList:Array<any>
+  bannerList: Array<any>,
+  contentList: Array<any>
 }
 
 class Article extends Component<{}, PageState> {
@@ -22,7 +23,7 @@ class Article extends Component<{}, PageState> {
   constructor(props) {
     super(props)
     this.state = {
-      bannerList:[
+      bannerList: [
         {
           rank: 1,
           img: 'https://yanxuan.nosdn.127.net/62399a2be90be4c8df3ca64e154d5351.jpg'
@@ -63,12 +64,36 @@ class Article extends Component<{}, PageState> {
 
   componentWillUnmount() { }
 
-  componentDidShow() { }
+  componentDidShow() {
+    this.getArticleList()
+  }
 
   componentDidHide() { }
 
+  getArticleList() {
+    fetch.post({
+      url: API_ARTICLE,
+      data: {
+        request: [
+          {
+            type: 'article',
+            action: 'cateList',
+            params: {
+              index: 1,
+              size: 20
+            }
+          }
+        ]
+
+      }
+    }).then(res => {
+      console.log(res.data.data, '请求列表');
+
+    })
+  }
+
   render() {
-    const { bannerList, contentList} = this.state
+    const { bannerList, contentList } = this.state
     return (
       <View className='article-view'>
         <Banner list={bannerList} />
