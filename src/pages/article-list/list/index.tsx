@@ -12,7 +12,7 @@ type Props = {
     artTags: Array<string>,
   }>
 }
-export default class SwiperBanner extends Component<Props, {}> {
+export default class List extends Component<Props, {}> {
   // app全局样式在组件中生效
   static options = {
     addGlobalClass: true

@@ -1,4 +1,11 @@
-.index {
+
+.article-view {
   flex-direction: column;
-  width: 100%;
+  padding: 30px;
+  .rich-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
 }
+

@@ -1,39 +1,61 @@
 import { ComponentClass } from 'react'
 import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Button, Text } from '@tarojs/components'
+import { View, RichText } from '@tarojs/components'
 import './article-detail.scss'
 import { API_ARTICLE } from '@/services/api'
 import fetch from '@/services/fetch'
 
-class Index extends Component {
+type PageState = {
+  articleItem: {
+    artName: string,
+    artTags: Array<string>
+    createTime: number,
+    artContent: string
+  },
+}
 
-    /**
-   * 指定config的类型声明为: Taro.Config
-   *
-   * 由于 typescript 对于 object 类型推导只能推出 Key 的基本类型
-   * 对于像 navigationBarTextStyle: 'black' 这样的推导出的类型是 string
-   * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
-   */
-    config: Config = {
+class Index extends Component<{}, PageState> {
+
+  /**
+ * 指定config的类型声明为: Taro.Config
+ *
+ * 由于 typescript 对于 object 类型推导只能推出 Key 的基本类型
+ * 对于像 navigationBarTextStyle: 'black' 这样的推导出的类型是 string
+ * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
+ */
+  config: Config = {
     navigationBarTitleText: ''
   }
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      articleItem: {
+        artName: '',
+        artTags: [],
+        createTime:0,
+        artContent: ''
+      }
+    }
+  }
+
   componentWillMount() {
     const { id } = this.$router.params;
     this.getArticleDetails(id)
   }
 
-  componentDidMount() {}
+  componentDidMount() { }
 
-  componentWillReceiveProps (nextProps) {
+  componentWillReceiveProps(nextProps) {
     console.log(this.props, nextProps)
   }
 
-  componentWillUnmount () { }
+  componentWillUnmount() { }
 
-  componentDidShow () { }
+  componentDidShow() { }
 
-  componentDidHide () { }
-  getArticleDetails(id:string) {
+  componentDidHide() { }
+  getArticleDetails(id: string) {
     fetch.post({
       url: API_ARTICLE,
       data: {
@@ -49,16 +71,21 @@ class Index extends Component {
 
       }
     }).then(res => {
-      console.log(res.data.data, '请求列表');
-      const data = res.data.data
-      // this.setState({
-      //   contentList: data.articlecateList.rows
-      // })
+      console.log(res.data.data.articleitem, '文章详情接口请求');
+      res.data.data.articleitem.artContent = res.data.data.articleitem.artContent.replace(/\<img/gi, '<img class="rich-img" ');
+      this.setState({
+        articleItem: res.data.data.articleitem
+      })
+      console.log(this.state.articleItem, '打印列表');
+
     })
   }
-  render () {
+  render() {
+    const { articleItem } = this.state
     return (
-      <View className='article-view'></View>
+      <View className='article-view'>
+        <RichText nodes={ articleItem.artContent } />
+      </View>
     )
   }
 }

@@ -1,4 +1,21 @@
+@import '@/styles/color.scss';
 .article-view {
   position: relative;
+  height: 100%;
   padding: 30px 0 0;
+  box-sizing: border-box;
+}
+.article-type-view {
+  padding: 30px;
+  .article-type_item {
+    line-height: 60px;
+    font-size: 32px;
+    color: $text-color-lighter;
+    margin-right: 20px;
+    &.active {
+      font-size: 36px;
+      color: $text-color;
+      border-bottom: 4px solid $theme;
+    }
+  }
 }

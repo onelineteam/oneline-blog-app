@@ -8,7 +8,7 @@ type Props = {
     rank: number
   }>
 }
-export default class SwiperBanner extends Component<Props,{}> {
+export default class Banner extends Component<Props,{}> {
   
   render () {
     const { list } = this.props
