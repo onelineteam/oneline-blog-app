@@ -137,7 +137,7 @@ class ArticleIist extends Component<{}, PageState> {
         this.setState({
           articleList: earticleListTem.concat(articleList),
           hasMore: true,
-          index: this.state.index + this.state.size
+          index: this.state.index + 1
         })
       }
     })
