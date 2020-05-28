@@ -1,13 +1,15 @@
-
+@import '@/styles/color.scss';
 /**
  * // NOTE  RN Swiper 的 indicator 位置与 H5、小程序不同
  * 这边通过 height + 负 margin 实现一致样式，或者自己实现 indicator 也不难
  */
 
 .article-banner {
-  height: 340px;
-  background: #ffffff;
+  height: 400px;
   overflow: hidden;
+  padding: 30px 0;
+  margin-bottom: 20px;
+  background: $white;
 }
 
 .article-banner__swiper {

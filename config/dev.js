@@ -10,6 +10,8 @@ module.exports = {
   },
   mini: {},
   h5: {
+    host:'192.168.1.3',
+    port:10086,
     devServer: {
       proxy: {
         '/': {

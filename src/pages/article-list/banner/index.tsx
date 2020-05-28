@@ -8,20 +8,19 @@ type Props = {
     rank: number
   }>
 }
-export default class Banner extends Component<Props,{}> {
-  
-  render () {
+export default class Banner extends Component<Props, {}> {
+
+  render() {
     const { list } = this.props
     return (
       <View className='article-banner'>
         <Swiper
           className='article-banner__swiper'
           circular
-          autoplay
           indicatorDots
           indicatorActiveColor='#656EE3'
         >
-          {list.map(item => (
+          {list && list.map(item => (
             <SwiperItem
               key={item.rank}
               className='article-banner__swiper-item'

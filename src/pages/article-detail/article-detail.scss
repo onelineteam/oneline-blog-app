@@ -1,7 +1,24 @@
-
-.article-view {
-  flex-direction: column;
+@import '@/styles/color.scss';
+.article-details-view {
+  height: 100%;
   padding: 30px;
+  box-sizing: border-box;
+  flex-direction: column;
+  background: $white;
+  .article-details_header {
+    margin-bottom: 40px;
+    .article-title {
+      font-size: 44px;
+    }
+    .article-intro {
+      font-size: 30px;
+      color: $text-color-light;
+    }
+    .article-create-time {
+      font-size: 28px;
+      color: $text-color-lighter;
+    }
+  }
   .rich-img {
     max-width: 100%;
     height: auto;

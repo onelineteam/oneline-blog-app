@@ -2,20 +2,30 @@
 .article-view {
   position: relative;
   height: 100%;
-  padding: 30px 0 0;
   box-sizing: border-box;
 }
+.article-type-scroll {
+  position: sticky;
+  top: 0;
+  background: $white;
+  z-index: 2;
+}
 .article-type-view {
-  padding: 30px;
+  white-space: nowrap;
+  padding: 20px 0;
   .article-type_item {
-    line-height: 60px;
-    font-size: 32px;
+    display: inline-block;
+    line-height: 70px;
+    font-size: 30px;
     color: $text-color-lighter;
-    margin-right: 20px;
+    margin:0 15px 0 30px;
     &.active {
-      font-size: 36px;
+      font-size: 34px;
       color: $text-color;
-      border-bottom: 4px solid $theme;
+      border-bottom: 6px solid $theme;
+    }
+    &:last-child{
+      margin-right: 30px;
     }
   }
 }

@@ -98,6 +98,7 @@ export const formatCount = (times) => {
 
 // 格式化时间戳为日期
 export const formatTimeStampToTime = (timestamp) => {
+  if(!timestamp) return
   const date = new Date(timestamp);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
   const year = date.getFullYear();
   const month = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1);

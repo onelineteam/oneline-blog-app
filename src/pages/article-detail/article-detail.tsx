@@ -4,13 +4,15 @@ import { View, RichText } from '@tarojs/components'
 import './article-detail.scss'
 import { API_ARTICLE } from '@/services/api'
 import fetch from '@/services/fetch'
+import { formatTimeStampToTime } from '@/utils/index'
 
 type PageState = {
   articleItem: {
     artName: string,
     artTags: Array<string>
     createTime: number,
-    artContent: string
+    artContent: string,
+    artSummary: string
   },
 }
 
@@ -33,8 +35,9 @@ class Index extends Component<{}, PageState> {
       articleItem: {
         artName: '',
         artTags: [],
-        createTime:0,
-        artContent: ''
+        createTime: 0,
+        artContent: '',
+        artSummary: ''
       }
     }
   }
@@ -71,20 +74,28 @@ class Index extends Component<{}, PageState> {
 
       }
     }).then(res => {
-      console.log(res.data.data.articleitem, '文章详情接口请求');
       res.data.data.articleitem.artContent = res.data.data.articleitem.artContent.replace(/\<img/gi, '<img class="rich-img" ');
       this.setState({
         articleItem: res.data.data.articleitem
       })
-      console.log(this.state.articleItem, '打印列表');
-
     })
   }
   render() {
     const { articleItem } = this.state
     return (
-      <View className='article-view'>
-        <RichText nodes={ articleItem.artContent } />
+      <View className='article-details-view'>
+        <View className='article-details_header'>
+          <View className='article-title'>
+            {articleItem.artName}
+          </View>
+          <View className='article-intro'>
+            {articleItem.artSummary}
+          </View>
+          <View className='article-create-time mt20'>
+            {formatTimeStampToTime(articleItem.createTime)}
+          </View>
+        </View>
+        <RichText nodes={articleItem.artContent} />
       </View>
     )
   }

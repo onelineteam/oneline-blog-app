@@ -1,14 +1,17 @@
 @import '@/styles/color.scss';
 .article-list {
-  // padding:40px 30px;
   padding: 0 30px;
-  // background:$background-bg;
+  margin-top: 20px;
+  background:$white;
 }
 .article-list_item {@import '@/styles/color.scss';
   .article-list {
     padding: 0 30px;
     margin-top: 20px;
     background: $white;
+  }
+  &:last-child{
+    border-bottom: 0;
   }
   .article-list_item {
     display: flex;
@@ -18,14 +21,19 @@
     border-bottom: 1Px solid $border-color;
     border-radius: 4px;
     &-l {
+      display: flex;
       flex: 1;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 120px;
       .item-title {
-        font-size: 28px;
+        font-size: 30px;
         color: $text-color;
       }
       .item-intro {
         color: $text-color-light;
-        font-size: 24px;
+        font-size: 26px;
+        margin-top: 10px;
       }
       .item-create-time {
         font-size: 20px;
@@ -45,10 +53,11 @@
     &-r {
       width: 120px;
       height: 120px;
-      &-img {
+      &_img {
         width: 100%;
         height: 100%;
         border-radius: 10px;
+        object-fit: cover;
       }
     }
   }
@@ -86,6 +95,7 @@
   &-r {
     width: 120px;
     height: 120px;
+    margin-left: 16px;
     &-img {
       width: 100%;
       height: 100%;
