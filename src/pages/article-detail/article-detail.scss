@@ -5,6 +5,7 @@
   box-sizing: border-box;
   flex-direction: column;
   background: $white;
+  overflow-x: hidden;
   .article-details_header {
     margin-bottom: 40px;
     .article-title {
@@ -20,7 +21,7 @@
     }
   }
   .rich-img {
-    max-width: 100%;
+    max-width: 100%!important;
     height: auto;
     display: block;
   }

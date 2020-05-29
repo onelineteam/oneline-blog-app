@@ -26,7 +26,7 @@ class Index extends Component<{}, PageState> {
  * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
  */
   config: Config = {
-    navigationBarTitleText: ''
+    navigationBarTitleText: 'One Line',
   }
 
   constructor(props) {
@@ -74,7 +74,7 @@ class Index extends Component<{}, PageState> {
 
       }
     }).then(res => {
-      res.data.data.articleitem.artContent = res.data.data.articleitem.artContent.replace(/\<img/gi, '<img class="rich-img" ');
+      res.data.data.articleitem.artContent = res.data.data.articleitem.artContent.replace(/\<img/gi, '<img class="rich-img" style="display:block; width:98%; margin:0 auto" ');
       this.setState({
         articleItem: res.data.data.articleitem
       })
@@ -88,7 +88,7 @@ class Index extends Component<{}, PageState> {
           <View className='article-title'>
             {articleItem.artName}
           </View>
-          <View className='article-intro'>
+          <View className='article-intro mt20'>
             {articleItem.artSummary}
           </View>
           <View className='article-create-time mt20'>
