@@ -1,0 +1,13 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "oneline-blog-app",
+  "description": "oneline团队的APP",
+  "appid": "touristappid",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram"
+}

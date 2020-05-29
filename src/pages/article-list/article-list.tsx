@@ -38,6 +38,13 @@ class ArticleIist extends Component<{}, PageState> {
     navigationBarTitleText: 'One Line',
   }
 
+  onShareAppMessage () { //放在父组件上执行，子组件上不被执行！
+    return {
+      title: 'One Line Team,一个自发性的技术团队,快来加入我们吧!',
+      path: '/pages/article-list/article-list'
+    }
+  }
+
   constructor(props) {
     super(props)
     this.state = {
@@ -45,11 +52,7 @@ class ArticleIist extends Component<{}, PageState> {
         {
           rank: 1,
           img: 'http://imagetest.meilif.cn/meiyehui/20200528/fG2aY6nbnJ354261439480158420.png'
-        },
-        // {
-        //   rank: 2,
-        //   img: 'https://yanxuan.nosdn.127.net/1f31c090095d995bf856b990fc106be6.jpg'
-        // },
+        }
       ],
       articleList: [],
       articleCateTyepList: [],

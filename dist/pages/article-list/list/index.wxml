@@ -1,0 +1,18 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="article-list">
+        <block wx:if="{{list}}">
+            <view class="article-list_item" wx:key="artId" bindtap="goDetail" wx:for="{{loopArray5}}" wx:for-item="item" wx:for-index="_anonIdx2" data-e-tap-so="this" data-e-tap-a-a="{{item.$original}}">
+                <view class="article-list_item-l">
+                    <view class="item-title text-line2-ellipsis">{{item.$original.artName}}</view>
+                    <view class="item-intro">{{item.$original.artSummary}}</view>
+                    <view class="item-create-time mt10">{{item.$loopState__temp2}}</view>
+                </view>
+                <block wx:if="{{item.$original.artThumb}}">
+                    <view class="article-list_item-r">
+                        <image class="article-list_item-r_img" src="{{item.$original.artThumb[0].url}}"></image>
+                    </view>
+                </block>
+            </view>
+        </block>
+    </view>
+</block>

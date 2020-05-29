@@ -1,0 +1,10 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="article-details-view">
+        <view class="article-details_header">
+            <view class="article-title">{{articleItem.artName}}</view>
+            <view class="article-intro mt20">{{articleItem.artSummary}}</view>
+            <view class="article-create-time mt20">{{anonymousState__temp}}</view>
+        </view>
+        <rich-text nodes="{{articleItem.artContent}}"></rich-text>
+    </view>
+</block>

@@ -1,0 +1,11 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="article-banner">
+        <swiper class="article-banner__swiper" circular="{{true}}" indicator-dots="{{true}}" indicator-active-color="#656EE3">
+            <block wx:if="{{list}}">
+                <swiper-item wx:key="rank" class="article-banner__swiper-item" wx:for="{{list}}" wx:for-item="item" wx:for-index="_anonIdx2">
+                    <image class="article-banner__swiper-item-img" src="{{item.img}}"></image>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+</block>

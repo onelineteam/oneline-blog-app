@@ -1,0 +1,13 @@
+<block wx:if="{{$taroCompReady}}">
+    <scroll-view scroll-y="{{true}}" class="article-view" bindscrolltolower="loadRArticleList">
+        <banner compid="{{$compid__2}}"></banner>
+        <scroll-view scroll-x="{{true}}" class="article-type-scroll mt20">
+            <view class="article-type-view">
+                <block wx:if="{{articleCateTyepList}}">
+                    <view class="{{item.$loopState__temp2}}" bindtap="tabChage" wx:for="{{loopArray4}}" wx:for-item="item" wx:for-index="key" data-e-tap-so="this" data-e-tap-a-a="{{item.$original.cateId}}" data-e-tap-a-b="{{key}}">{{item.$original.cateName}}</view>
+                </block>
+            </view>
+        </scroll-view>
+        <list compid="{{$compid__3}}"></list>
+    </scroll-view>
+</block>
